@@ -20,7 +20,7 @@ jobs:
       - name: 기상청 API로 마포구 상암동 초단기 실황 제공
         run: |
           pip install requests python-dotenv
-          python get_now_climate.py
+          python $GITHUB_WORKSPACE/get_now_climate.py 
         env:
           AUTHKEY: ${{ secrets.AUTHKEY }}
 
