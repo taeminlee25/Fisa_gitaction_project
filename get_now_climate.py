@@ -53,7 +53,7 @@ def update_readme():
     # get_now_climate() 함수를 호출하고 반환
     temp, rn, hum, ws = get_now_climate()
 
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    now = seoul_time.strftime("%Y년 %m월 %d일 %H시 %M분")
 
     readme_content = f"""
 # 마포구 상암동 초단기 실황 날씨 정보 🌤️
