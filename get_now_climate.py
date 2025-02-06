@@ -2,13 +2,11 @@ import requests
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-from zoneinfo import ZoneInfo
+import pytz
 
-# 현재 UTC 시간 가져오기
-utc_now = datetime.utcnow()
-
-# 서울 시간대로 변환
-seoul_time = utc_now.replace(tzinfo=ZoneInfo('Asia/Seoul'))
+# 서울 시간대로 현재 시간 가져오기
+seoul_tz = pytz.timezone('Asia/Seoul')
+seoul_time = datetime.now(seoul_tz)
 
 load_dotenv()
 
