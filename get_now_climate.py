@@ -2,6 +2,13 @@ import requests
 import os
 from datetime import datetime
 from dotenv import load_dotenv
+from zoneinfo import ZoneInfo
+
+# 현재 UTC 시간 가져오기
+utc_now = datetime.utcnow()
+
+# 서울 시간대로 변환
+seoul_time = utc_now.replace(tzinfo=ZoneInfo('Asia/Seoul'))
 
 load_dotenv()
 
@@ -11,7 +18,7 @@ def get_now_climate():
     nx, ny = 58, 127
 
     # 발표 일자는 오늘 날짜
-    now = datetime.now()
+    now = seoul_time
     date = now.strftime("%Y%m%d")
     time = now.strftime("%H%M")
     # 발표 시각 06시 발표(정시단위) -매시각 10분 이후 호출
